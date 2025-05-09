@@ -7,16 +7,15 @@ import { AuthProvider } from './features/auth/AuthContext';
 import MainLayout from './components/layout/MainLayout';
 import ProtectedRoute from './routes/ProtectedRoute';
 import RoleBasedRoute from './routes/RoleBasedRoute'; 
-
 import LoginPage from './features/auth/LoginPage';
 import DashboardDispatcher from './features/dashboard/DashboardDispatcher';
-
+import PatientCreatePage from './features/patients/PatientCreatePage';
+import AppointmentSchedulerPage from './features/appointments/AppointmentSchedulerPage';
+import ManageAppointmentsPage from './features/appointments/ManageAppointmentsPage';
 
 const PlaceholderPage = ({ title }) => <div className="p-6"><h1 className="text-2xl">{title}</h1><p>This page is under construction.</p></div>;
 const PatientListPage = () => <PlaceholderPage title="Patient List" />;
-const PatientCreatePage = () => <PlaceholderPage title="Register New Patient" />;
 const PatientDetailPage = () => <PlaceholderPage title="Patient Details" />;
-const AppointmentSchedulerPage = () => <PlaceholderPage title="Schedule Appointment" />;
 const MyAppointmentsPage = () => <PlaceholderPage title="My Appointments" />;
 const UserManagementPage = () => <PlaceholderPage title="Admin: User Management" />;
 const StaffManagementPage = () => <PlaceholderPage title="Admin: Staff Management" />;
@@ -60,10 +59,12 @@ function App() {
                 <Route element={<RoleBasedRoute allowedRoles={['Receptionist', 'Doctor', 'Admin']} />}>
                   <Route path="/appointments/schedule" element={<AppointmentSchedulerPage />} />
                 </Route>
+                <Route element={<RoleBasedRoute allowedRoles={['Receptionist', 'Doctor', 'Admin']} />}>
+                  <Route path="/appointments/manage" element={<ManageAppointmentsPage />} />
+                </Route>
                 <Route element={<RoleBasedRoute allowedRoles={['Doctor', 'Patient']} />}> {/* Assuming Patient role exists for self-view */}
                   <Route path="/appointments/my" element={<MyAppointmentsPage />} />
                 </Route>
-
                 {/* Staff Task Routes */}
                 <Route element={<RoleBasedRoute allowedRoles={['Nurse', 'WardBoy']} />}>
                     <Route path="/assignments/my-tasks" element={<MyTasksPage />} />
