@@ -1,8 +1,8 @@
 // src/features/dashboard/DashboardDispatcher.jsx (Updated)
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
-// import AdminDashboardPage from './AdminDashboardPage'; // Create these
-import DoctorDashboardPage from './DoctorDashboardPage';
+
+import DoctorDashboardPage from './DoctorDashboardPage';import AdminDashboardPage from './AdminDashboardPage'; // Create these
 import NurseDashboardPage from './NurseDashboardPage';
 import ReceptionistDashboardPage from './ReceptionistDashboardPage'; 
 import WardBoyDashboardPage from './WardBoyDashboardPage'; 
@@ -16,8 +16,8 @@ function DashboardDispatcher() {
   }
 
   switch (currentUser.role) {
-    // case 'Admin':
-    //   return <AdminDashboardPage />;
+    case 'Admin':
+      return <AdminDashboardPage />;
     case 'Doctor':
       return <DoctorDashboardPage />;
     case 'Nurse':
