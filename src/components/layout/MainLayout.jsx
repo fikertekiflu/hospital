@@ -1,7 +1,8 @@
 import React from 'react'; // Removed useState as mobile toggle is removed for now
 import { useAuth } from '../../hooks/useAuth'; // To get current user's role
 
-
+// Import all role-specific sidebars
+import AdminSidebar from './AdminSidebar'; 
 import DoctorSidebar from './DoctorSidebar'; 
 import NurseSidebar from './NurseSidebar'; 
 import ReceptionistSidebar from './ReceptionistSidebar';
@@ -17,6 +18,8 @@ const MainLayout = ({ children }) => {
     if (!isAuthenticated || !currentUser) return null; 
 
     switch (currentUser.role) {
+      case 'Admin':
+        return <AdminSidebar />;
       case 'Doctor':
         return <DoctorSidebar />;
       case 'Nurse':
