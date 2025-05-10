@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import heroBackgroundImage from '../../assets/secondpic.avif';
 import {
   ArrowRightIcon,
   ShieldCheckIcon,
@@ -63,7 +64,7 @@ const animationStyles = `
 
 const LandingPage = () => {
   const currentYear = new Date().getFullYear();
-  
+
   // Intersection Observer for animations
   const observerRefs = useRef([]);
   const addToRefs = (el) => {
@@ -95,7 +96,7 @@ const LandingPage = () => {
         if (ref) observer.unobserve(ref);
       });
     };
-  }, []); 
+  }, []);
 
   const initialAnimationClasses = "opacity-0 transform translate-y-5 scale-95 transition-all duration-700 ease-out";
 
@@ -136,31 +137,31 @@ const LandingPage = () => {
   return (
     <>
       <style>{animationStyles}</style>
-      <div className="bg-slate-100 text-slate-800 antialiased overflow-x-hidden">
+      <div className=" text-slate-800 antialiased overflow-x-hidden">
         {/* Navbar */}
-        <nav className="bg-white/95 backdrop-blur-xl shadow-md fixed w-full z-50 top-0 transition-all duration-300">
+        <nav className="bg-[#f0f8ff] backdrop-blur-xl shadow-md fixed w-full z-50 top-0 transition-all duration-300">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
-              <Link to="/" className="text-3xl font-extrabold text-indigo-600 flex items-center group">
-                <HeartIcon className="w-9 h-9 mr-2.5 text-indigo-500 group-hover:text-purple-500 transition-transform duration-300 group-hover:scale-110" />
+              <Link to="/" className="text-3xl font-extrabold text-[#3498db] flex items-center group">
+                <HeartIcon className="w-9 h-9 mr-2.5 text-[#3498db] group-hover:text-purple-500 transition-transform duration-300 group-hover:scale-110" />
                 <span className="group-hover:text-purple-600 transition-colors duration-300">CareConnect</span>
               </Link>
               <div className="flex items-center space-x-2">
-                <Link 
-                  to="#features" 
+                <Link
+                  to="#features"
                   className="hidden md:inline-block text-slate-600 hover:text-indigo-600 px-4 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   Features
                 </Link>
-                <Link 
-                  to="#how-it-works" 
+                <Link
+                  to="#how-it-works"
                   className="hidden md:inline-block text-slate-600 hover:text-indigo-600 px-4 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   How It Works
                 </Link>
-                <Link 
-                  to="/login" 
-                  className="cta-button-primary bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-sm"
+                <Link
+                  to="/login"
+                  className="cta-button-primary bg-[#3498db] hover:bg-indigo-500 text-white font-semibold py-2.5 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-sm"
                 >
                   Staff Login
                 </Link>
@@ -170,24 +171,24 @@ const LandingPage = () => {
         </nav>
 
         {/* Hero Section */}
-        <header className="hero-bg-gradient text-white pt-40 pb-28 md:pt-48 md:pb-36 relative">
-          <div className="absolute inset-0 opacity-10 bg-cover bg-center" style={{backgroundImage: "url('https://placehold.co/1920x1080/1e3a8a/3b0764?text=Subtle+Medical+Pattern&font=Inter')"}}></div>
+        <header className=" text-black/50  pt-40 pb-28 md:pt-48 md:pb-36 relative">
+          <div className="absolute inset-0 opacity-50 bg-cover bg-center"  style={{ backgroundImage: `url(${heroBackgroundImage})` }}></div>
           <div className="container mx-auto px-6 text-center relative z-10">
             <h1 ref={addToRefs} className={`${initialAnimationClasses} text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight delay-100`}>
               The Future of Healthcare Management, <span className="block">Simplified.</span>
             </h1>
-            <p ref={addToRefs} className={`${initialAnimationClasses} text-lg sm:text-xl text-indigo-200 mb-12 max-w-3xl mx-auto delay-300`}>
-              CareConnect HMS empowers medical professionals with an intuitive, integrated platform to deliver exceptional patient care and optimize hospital operations.
+            <p ref={addToRefs} className={`${initialAnimationClasses} text-lg sm:text-xl text-black/50 mb-12 max-w-3xl mx-auto delay-300`}>
+              CareConnect HMS empowers medical professionals with an intuitive.
             </p>
             <div ref={addToRefs} className={`${initialAnimationClasses} delay-500 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6`}>
-              <Link 
-                to="/login" 
+              <Link
+                to="/login"
                 className="cta-button-primary bg-white text-indigo-700 font-bold py-3.5 px-10 rounded-lg text-lg shadow-xl hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-500 w-full sm:w-auto"
               >
                 Access Portal
               </Link>
-              <Link 
-                to="#features" 
+              <Link
+                to="#features"
                 className="cta-button-primary bg-transparent hover:bg-white/20 text-white font-semibold py-3.5 px-10 rounded-lg text-lg border-2 border-white w-full sm:w-auto"
               >
                 Learn More <ArrowRightIcon className="inline-block h-5 w-5 ml-2"/>
@@ -197,7 +198,7 @@ const LandingPage = () => {
         </header>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-20 md:py-28 bg-slate-50">
+        <section id="benefits" className=" bg-[#f0f8ff] py-20 md:py-28 bg-slate-50">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16 md:mb-20">
               <h2 ref={addToRefs} className={`${initialAnimationClasses} text-3xl md:text-4xl font-bold text-slate-800 mb-3`}>Transform Your Practice</h2>
@@ -207,8 +208,8 @@ const LandingPage = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit, index) => (
-                <div 
-                  key={benefit.title} 
+                <div
+                  key={benefit.title}
                   ref={addToRefs}
                   className={`${initialAnimationClasses} delay-${(index + 1) * 100} bg-white p-8 rounded-xl shadow-lg text-center feature-card-hover`}
                 >
@@ -234,12 +235,12 @@ const LandingPage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
               {features.map((feature, index) => (
-                <div 
-                  key={feature.title} 
+                <div
+                  key={feature.title}
                   ref={addToRefs}
                   className={`${initialAnimationClasses} delay-${(index + 1) * 200} flex items-start space-x-6 p-6 rounded-lg hover:bg-slate-50 transition-colors`}
                 >
-                  <div className={`flex-shrink-0 flex items-center justify-center h-14 w-14 rounded-full bg-${feature.color}-100 text-${feature.color}-600 shadow-sm`}>
+                  <div className={`flex-shrink-0 flex items-center justify-center h-14 w-14 rounded-full bg-[#3498db] text-white shadow-sm`}>
                     <feature.icon className="w-7 h-7" />
                   </div>
                   <div>
@@ -251,9 +252,9 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
-        
+
         {/* How It Works Section */}
-        <section id="how-it-works" className="py-20 md:py-28 bg-slate-100">
+        <section id="how-it-works" className="bg-[#f0f8ff] py-20 md:py-28 bg-slate-100">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16 md:mb-20">
                     <h2 ref={addToRefs} className={`${initialAnimationClasses} text-3xl md:text-4xl font-bold text-slate-800 mb-3`}>Simple Steps to Efficiency</h2>
@@ -268,7 +269,7 @@ const LandingPage = () => {
                         { title: "Bill & Report", description: "Streamline billing, track payments, and generate insightful reports.", icon: ChartBarIcon, delay: 500 }
                     ].map((step, index) => (
                         <div key={step.title} ref={addToRefs} className={`${initialAnimationClasses} delay-${step.delay} bg-white p-8 rounded-xl shadow-lg feature-card-hover`}>
-                            <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 text-indigo-600 mb-6 shadow-md">
+                            <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-[#3498db] text-white mb-6 shadow-md">
                                 <step.icon className="w-8 h-8" />
                             </div>
                             <h3 className="text-xl font-semibold text-slate-800 mb-2">{index + 1}. {step.title}</h3>
@@ -282,14 +283,14 @@ const LandingPage = () => {
         {/* Call to Action Section */}
         <section ref={addToRefs} className={`${initialAnimationClasses} py-24 md:py-32 hero-gradient text-white`}>
           <div className="container mx-auto px-6 text-center">
-            <ShieldCheckIcon className="h-16 w-16 text-indigo-300 mx-auto mb-6"/>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6">Secure, Reliable, and Ready for Your Hospital</h2>
-            <p className="text-indigo-200 max-w-2xl mx-auto mb-10 text-lg">
+            <ShieldCheckIcon className="h-16 w-16 text-[#3498db] mx-auto mb-6 "/>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 text-black">Secure, Reliable, and Ready for Your Hospital</h2>
+            <p className="text-black max-w-2xl mx-auto mb-10 text-lg">
               Invest in a system that grows with you and prioritizes data security and ease of use.
             </p>
-            <Link 
-              to="/login" 
-              className="cta-button-secondary bg-white text-indigo-700 font-bold py-4 px-12 rounded-lg text-xl shadow-xl hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
+            <Link
+              to="/login"
+              className="cta-button-secondary bg-[#3498db] text-white font-bold py-4 px-12 rounded-lg text-xl shadow-xl hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
             >
               Get Started Today
             </Link>
@@ -297,12 +298,12 @@ const LandingPage = () => {
         </section>
 
         {/* Footer */}
-        <footer className="bg-slate-900 text-slate-400 py-16">
+        <footer className="bg-[#1a237e] text-slate-400 py-16">
           <div className="container mx-auto px-6 text-center">
             <div className="mb-6">
-                <Link to="/" className="text-2xl font-bold text-indigo-400 flex items-center justify-center group">
-                    <HeartIcon className="w-8 h-8 mr-2.5 text-indigo-500 group-hover:text-purple-400 transition-colors" />
-                    <span className="group-hover:text-purple-400 transition-colors">CareConnect HMS</span>
+                <Link to="/" className="text-2xl font-bold text-[#3498db] flex items-center justify-center group">
+                    <HeartIcon className="w-8 h-8 mr-2.5 text-[[#3498dd]] group-hover:text-[[#3498dd]] transition-colors" />
+                    <span className="group-hover:text-[#3498dd] transition-colors text-[#3498db]">CareConnect HMS</span>
                 </Link>
             </div>
             <div className="flex justify-center space-x-6 mb-6">
