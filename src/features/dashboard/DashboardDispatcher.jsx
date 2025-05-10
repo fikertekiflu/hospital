@@ -2,9 +2,11 @@
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 // import AdminDashboardPage from './AdminDashboardPage'; // Create these
-// import DoctorDashboardPage from './DoctorDashboardPage';
-// import NurseDashboardPage from './NurseDashboardPage';
-import ReceptionistDashboardPage from './ReceptionistDashboardPage'; // Import the new one
+import DoctorDashboardPage from './DoctorDashboardPage';
+import NurseDashboardPage from './NurseDashboardPage';
+import ReceptionistDashboardPage from './ReceptionistDashboardPage'; 
+import WardBoyDashboardPage from './WardBoyDashboardPage'; 
+import BillingStaffDashboardPage from './BillingStaffDashboardPage'; 
 
 function DashboardDispatcher() {
   const { currentUser } = useAuth();
@@ -16,12 +18,16 @@ function DashboardDispatcher() {
   switch (currentUser.role) {
     // case 'Admin':
     //   return <AdminDashboardPage />;
-    // case 'Doctor':
-    //   return <DoctorDashboardPage />;
-    // case 'Nurse':
-    //   return <NurseDashboardPage />;
+    case 'Doctor':
+      return <DoctorDashboardPage />;
+    case 'Nurse':
+      return <NurseDashboardPage />;
     case 'Receptionist':
-      return <ReceptionistDashboardPage />; // Render the specific dashboard
+      return <ReceptionistDashboardPage />; 
+    case 'WardBoy':
+      return <WardBoyDashboardPage />; 
+    case 'BillingStaff':
+      return <BillingStaffDashboardPage />; 
     // Add other roles
     default:
       return (
